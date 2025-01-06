@@ -36,16 +36,18 @@ button:hover {
 #name-list {
     margin-top: 20px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 10px;
 }
 
 .name-item {
     padding: 15px;
-    background: #444;
+    background: #333;
     border-radius: 8px;
     font-size: 1.5rem;
+    width: fit-content;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 /* Стили для блока рекламы */
@@ -53,5 +55,6 @@ button:hover {
     margin-top: 30px;
     padding: 20px;
     border-radius: 10px;
-    background: #333;
+    background: #222;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
