@@ -27,6 +27,29 @@
     });
     </script>
 
-    <script src="script.js"></script>
+    <script>
+    let currentNames = [];
+    async function loadNames(file) {
+        try {
+            const response = await fetch(file);
+            const text = await response.text();
+            currentNames = text.split('\\n').filter(name => name.trim() !== '');
+            displayNames(currentNames);
+        } catch (error) {
+            alert('Ошибка загрузки данных');
+        }
+    }
+
+    function displayNames(list) {
+        const nameListElement = document.getElementById('name-list');
+        nameListElement.innerHTML = '';
+        list.forEach(name => {
+            const nameElement = document.createElement('div');
+            nameElement.className = 'name-item';
+            nameElement.textContent = name;
+            nameListElement.appendChild(nameElement);
+        });
+    }
+    </script>
 </body>
 </html>
