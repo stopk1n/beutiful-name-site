@@ -7,49 +7,53 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Самые красивые имена для девочек и мальчиков</h1>
-    <button onclick="loadNames('malename.txt')">♂️</button>
-    <button onclick="loadNames('femalename.txt')">♀️</button>
-    <div id="name-list"></div>
+    <div class="container">
+        <h1>Самые красивые имена для девочек и мальчиков</h1>
+        <div class="button-container">
+            <button onclick="loadNames('malename.txt')">♂️</button>
+            <button onclick="loadNames('femalename.txt')">♀️</button>
+        </div>
+        <div id="name-list"></div>
 
-    <!-- Yandex.RTB -->
-    <script>window.yaContextCb=window.yaContextCb||[]</script>
-    <script src="https://yandex.ru/ads/system/context.js" async></script>
+        <!-- Yandex.RTB -->
+        <script>window.yaContextCb=window.yaContextCb||[]</script>
+        <script src="https://yandex.ru/ads/system/context.js" async></script>
 
-    <!-- Yandex.RTB R-A-13588930-1 -->
-    <div id="yandex_rtb_R-A-13588930-1"></div>
-    <script>
-    window.yaContextCb.push(() => {
-        Ya.Context.AdvManager.render({
-            "blockId": "R-A-13588930-1",
-            "renderTo": "yandex_rtb_R-A-13588930-1"
+        <!-- Yandex.RTB R-A-13588930-1 -->
+        <div id="yandex_rtb_R-A-13588930-1"></div>
+        <script>
+        window.yaContextCb.push(() => {
+            Ya.Context.AdvManager.render({
+                "blockId": "R-A-13588930-1",
+                "renderTo": "yandex_rtb_R-A-13588930-1"
+            });
         });
-    });
-    </script>
+        </script>
+    </div>
 
     <script>
-    let currentNames = [];
-    async function loadNames(file) {
-        try {
-            const response = await fetch(file);
-            const text = await response.text();
-            currentNames = text.split('\\n').filter(name => name.trim() !== '');
-            displayNames(currentNames);
-        } catch (error) {
-            alert('Ошибка загрузки данных');
+        let currentNames = [];
+        async function loadNames(file) {
+            try {
+                const response = await fetch(file);
+                const text = await response.text();
+                currentNames = text.split('\\n').filter(name => name.trim() !== '');
+                displayNames(currentNames);
+            } catch (error) {
+                alert('Ошибка загрузки данных');
+            }
         }
-    }
 
-    function displayNames(list) {
-        const nameListElement = document.getElementById('name-list');
-        nameListElement.innerHTML = '';
-        list.forEach(name => {
-            const nameElement = document.createElement('div');
-            nameElement.className = 'name-item';
-            nameElement.textContent = name;
-            nameListElement.appendChild(nameElement);
-        });
-    }
+        function displayNames(list) {
+            const nameListElement = document.getElementById('name-list');
+            nameListElement.innerHTML = '';
+            list.forEach(name => {
+                const nameElement = document.createElement('div');
+                nameElement.className = 'name-item';
+                nameElement.textContent = name;
+                nameListElement.appendChild(nameElement);
+            });
+        }
     </script>
 </body>
 </html>
