@@ -11,11 +11,10 @@
     <div class="container">
         <h1>Самые красивые имена для девочек и мальчиков</h1>
         <div class="button-container">
-            <button onclick="loadNames('malename.txt')">♂️ Мальчики</button>
-            <button onclick="loadNames('femalename.txt')">♀️ Девочки</button>
+            <button id="maleButton" onclick="animateAndLoadNames('malename.txt', 'maleButton')">♂️</button>
+            <button id="femaleButton" onclick="animateAndLoadNames('femalename.txt', 'femaleButton')">♀️</button>
         </div>
         <div id="name-list"></div>
-        <div id="yandex_rtb_R-A-13588930-1"></div>
     </div>
 </body>
 </html>
