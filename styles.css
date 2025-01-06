@@ -1,7 +1,8 @@
+/* Основной стиль страницы */
 body {
     font-family: 'Arial', sans-serif;
-    background: #121212;
-    color: white;
+    background: #121212; /* Темный фон */
+    color: white; /* Белый текст для контраста */
     margin: 0;
     padding: 0;
     display: flex;
@@ -11,21 +12,30 @@ body {
     overflow: hidden;
 }
 
+/* Контейнер для всего содержимого */
 .container {
     text-align: center;
     padding: 20px;
+    max-width: 80%;
+    background: #1e1e1e; /* Слегка темный фон для контейнера */
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Тень для глубины */
 }
 
+/* Заголовок */
 h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    color: #f0a500; /* Оранжевый цвет для акцента */
 }
 
+/* Контейнер для кнопок */
 .button-container {
     margin-bottom: 20px;
     position: relative;
 }
 
+/* Стиль кнопок */
 button {
     position: absolute;
     top: 0;
@@ -36,22 +46,29 @@ button {
     border-radius: 50%;
     cursor: pointer;
     font-size: 2rem;
-    transition: all 0.5s ease-in-out;
+    background: #f0a500; /* Оранжевая кнопка */
+    color: white;
+    transition: all 0.3s ease-in-out;
     z-index: 2;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Легкая тень */
 }
 
+/* Стиль для кнопки, когда она перемещена */
 button.moved {
     top: -80px;
 }
 
+/* Эффект появления имён */
 .name-item {
     opacity: 0;
     transform: scale(0);
     animation: appear 0.8s forwards ease-in-out;
     margin-top: 10px;
     font-size: 1.8rem;
+    color: #b8b8b8; /* Серый цвет для текста имён */
 }
 
+/* Анимация появления */
 @keyframes appear {
     0% {
         opacity: 0;
@@ -60,5 +77,28 @@ button.moved {
     100% {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        margin: 10px;
+        font-size: 1.8rem;
+        padding: 10px 20px;
+    }
+
+    .container {
+        max-width: 90%;
+        padding: 15px;
     }
 }
