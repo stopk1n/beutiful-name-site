@@ -1,6 +1,9 @@
 let currentNames = [];
 
-async function loadNames(file) {
+async function animateAndLoadNames(file, buttonId) {
+    const button = document.getElementById(buttonId);
+    button.classList.add('moved');
+
     try {
         const response = await fetch(file);
         if (!response.ok) throw new Error('Файл не найден');
@@ -9,12 +12,17 @@ async function loadNames(file) {
         displayNames(currentNames);
     } catch (error) {
         alert('Ошибка: ' + error.message);
+        button.classList.remove('moved');
     }
 }
 
 function displayNames(list) {
     const nameListElement = document.getElementById('name-list');
-    nameListElement.innerHTML = list.map(name => 
-        `<div class="name-item">${name}</div>`
-    ).join('');
+    nameListElement.innerHTML = '';
+    list.forEach(name => {
+        const nameElement = document.createElement('div');
+        nameElement.className = 'name-item';
+        nameElement.textContent = name;
+        nameListElement.appendChild(nameElement);
+    });
 }
