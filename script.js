@@ -1,30 +1,48 @@
-let currentNames = [];
+const names = [
+  { name: 'Алексей', gender: 'male', culture: 'russian' },
+  { name: 'Мария', gender: 'female', culture: 'russian' },
+  { name: 'Омар', gender: 'male', culture: 'arabic' },
+  { name: 'Лейла', gender: 'female', culture: 'arabic' },
+  { name: 'Марк', gender: 'male', culture: 'latin' },
+  { name: 'София', gender: 'female', culture: 'latin' },
+  // Добавь больше имен по мере необходимости
+];
 
-async function animateAndLoadNames(file, buttonId) {
-    const button = document.getElementById(buttonId);
-    button.classList.add('moved');
+function filterNames() {
+  const gender = document.getElementById('gender').value;
+  const culture = document.getElementById('culture').value;
+  const firstLetter = document.getElementById('first-letter').value.toLowerCase();
 
-    try {
-        const response = await fetch(file);
-        if (!response.ok) throw new Error('Ошибка загрузки файла');
-        const text = await response.text();
-        currentNames = text.split('\n').filter(name => name.trim() !== '');
-        displayNames(currentNames);
-    } catch (error) {
-        alert('Ошибка: ' + error.message);
-        button.classList.remove('moved');
-    }
+  const filteredNames = names.filter(name => {
+    return (
+      (gender === 'all' || name.gender === gender) &&
+      (culture === 'all' || name.culture === culture) &&
+      (firstLetter === '' || name.name.toLowerCase().startsWith(firstLetter))
+    );
+  });
+
+  displayNames(filteredNames);
 }
 
-function displayNames(list) {
-    const nameListElement = document.getElementById('name-list');
-    nameListElement.innerHTML = ''; // Очищаем предыдущие имена
-    list.forEach((name, index) => {
-        setTimeout(() => {
-            const nameElement = document.createElement('div');
-            nameElement.className = 'name-item';
-            nameElement.textContent = name;
-            nameListElement.appendChild(nameElement);
-        }, index * 50); // Ускорено появление имен
-    });
+function displayNames(filteredNames) {
+  const nameList = document.getElementById('name-list');
+  nameList.innerHTML = '';
+
+  filteredNames.forEach(name => {
+    const li = document.createElement('li');
+    li.textContent = name.name;
+    nameList.appendChild(li);
+  });
 }
+
+document.getElementById('gender').addEventListener('change', filterNames);
+document.getElementById('culture').addEventListener('change', filterNames);
+document.getElementById('first-letter').addEventListener('input', filterNames);
+
+document.getElementById('random-name-btn').addEventListener('click', function() {
+  const randomName = names[Math.floor(Math.random() * names.length)];
+  document.getElementById('random-name-result').textContent = randomName.name;
+});
+
+// Инициализация
+filterNames();
