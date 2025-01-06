@@ -6,7 +6,7 @@ async function animateAndLoadNames(file, buttonId) {
 
     try {
         const response = await fetch(file);
-        if (!response.ok) throw new Error('Файл не найден');
+        if (!response.ok) throw new Error('Ошибка загрузки файла');
         const text = await response.text();
         currentNames = text.split('\n').filter(name => name.trim() !== '');
         displayNames(currentNames);
@@ -19,10 +19,12 @@ async function animateAndLoadNames(file, buttonId) {
 function displayNames(list) {
     const nameListElement = document.getElementById('name-list');
     nameListElement.innerHTML = '';
-    list.forEach(name => {
-        const nameElement = document.createElement('div');
-        nameElement.className = 'name-item';
-        nameElement.textContent = name;
-        nameListElement.appendChild(nameElement);
+    list.forEach((name, index) => {
+        setTimeout(() => {
+            const nameElement = document.createElement('div');
+            nameElement.className = 'name-item';
+            nameElement.textContent = name;
+            nameListElement.appendChild(nameElement);
+        }, index * 100); // Эффект последовательного появления
     });
 }
