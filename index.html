@@ -1,20 +1,52 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Самые красивые имена</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Выбор имени для ребенка</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Самые красивые имена для девочек и мальчиков</h1>
-        <div class="button-container">
-            <button id="maleButton" onclick="animateAndLoadNames('malename.txt', 'maleButton')">♂️</button>
-            <button id="femaleButton" onclick="animateAndLoadNames('femalename.txt', 'femaleButton')">♀️</button>
-        </div>
-        <div id="name-list"></div>
-    </div>
+  <header>
+    <h1>Выбор имени для вашего ребенка</h1>
+  </header>
+
+  <section class="filters">
+    <label for="gender">Пол:</label>
+    <select id="gender">
+      <option value="all">Все</option>
+      <option value="male">Мужские</option>
+      <option value="female">Женские</option>
+    </select>
+
+    <label for="culture">Культура:</label>
+    <select id="culture">
+      <option value="all">Все</option>
+      <option value="russian">Русские</option>
+      <option value="arabic">Арабские</option>
+      <option value="latin">Латинские</option>
+    </select>
+
+    <label for="first-letter">Первая буква:</label>
+    <input type="text" id="first-letter" maxlength="1">
+  </section>
+
+  <section class="name-list">
+    <h2>Рекомендации:</h2>
+    <ul id="name-list">
+      <!-- Список имен будет выводиться здесь -->
+    </ul>
+  </section>
+
+  <section class="random-name">
+    <button id="random-name-btn">Сгенерировать случайное имя</button>
+    <p id="random-name-result"></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Выбор имени для ребенка</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
