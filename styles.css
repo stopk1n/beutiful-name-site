@@ -1,11 +1,34 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background: #121212;
+button {
+    position: relative;
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
     color: white;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease, box-shadow 0.2s ease, top 0.5s ease;
+}
+
+button.moved {
+    top: -100px;
+}
+
+.name-item {
+    opacity: 0;
+    transform: scale(0);
+    animation: appear 0.5s forwards ease-in-out;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
