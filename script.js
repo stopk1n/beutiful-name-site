@@ -18,13 +18,13 @@ async function animateAndLoadNames(file, buttonId) {
 
 function displayNames(list) {
     const nameListElement = document.getElementById('name-list');
-    nameListElement.innerHTML = '';
+    nameListElement.innerHTML = ''; // Очищаем предыдущие имена
     list.forEach((name, index) => {
         setTimeout(() => {
             const nameElement = document.createElement('div');
             nameElement.className = 'name-item';
             nameElement.textContent = name;
             nameListElement.appendChild(nameElement);
-        }, index * 100); // Эффект последовательного появления
+        }, index * 50); // Ускорено появление имен
     });
 }
