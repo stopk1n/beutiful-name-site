@@ -3,53 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Самые красивые имена для девочек и мальчиков</title>
+    <title>Имена для детей — самые красивые имена для мальчиков и девочек</title>
+    <meta name="description" content="Подборка самых красивых и редких имен для детей. Мужские и женские имена с удобным выбором.">
+    <meta name="keywords" content="имена для детей, красивые имена, имена для мальчиков, имена для девочек, редкие имена">
+    <meta name="author" content="Ваше Имя">
+    <meta name="robots" content="index, follow">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Имена для детей",
+      "description": "Подборка самых красивых имен для мальчиков и девочек.",
+      "url": "https://vermillion-daffodil-29ab11.netlify.app"
+    }
+    </script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             background-color: #121212;
             color: white;
+            text-align: center;
             padding: 20px;
         }
-        #name-list {
-            margin-top: 20px;
-        }
-        .name-item {
-            padding: 10px;
-            border: 1px solid #333;
-            margin: 5px;
-            border-radius: 5px;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: fadeIn 0.5s ease-out forwards;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        h1 {
+            font-size: 2rem;
         }
         button {
-            margin: 10px;
             padding: 10px 20px;
+            margin: 10px;
             border: none;
-            cursor: pointer;
-            font-size: 24px;
-            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            border-radius: 8px;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
             color: white;
-            border-radius: 10px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            transition: transform 0.2s;
         }
         button:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(255, 126, 95, 0.8);
         }
-        h1 { font-size: 28px; }
+        .name-item {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -64,7 +66,8 @@
         async function loadNames(file) {
             try {
                 const response = await fetch(file);
-                currentNames = (await response.text()).split('\n').filter(name => name.trim() !== '');
+                const text = await response.text();
+                currentNames = text.split('\n').filter(name => name.trim() !== '');
                 displayNames(currentNames);
             } catch (error) {
                 alert('Ошибка загрузки данных');
