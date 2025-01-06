@@ -9,72 +9,28 @@
     <meta name="author" content="Ваше Имя">
     <meta name="robots" content="index, follow">
 
-    <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-    m[i].l=1*new Date();
-    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
- 
-    ym(99414881, "init", {
-         clickmap:true,
-         trackLinks:true,
-         accurateTrackBounce:true
-    });
- </script>
- <noscript><div><img src="https://mc.yandex.ru/watch/99414881" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
- <!-- /Yandex.Metrika counter -->
-  
-    <!-- Schema.org structured data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Имена для детей",
-      "description": "Подборка самых красивых имен для мальчиков и девочек.",
-      "url": "https://vermillion-daffodil-29ab11.netlify.app"
-    }
+    <!-- Yandex Metrika -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        ym(12345678, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+        });
     </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/12345678" style="position:absolute; left:-9999px;" alt=""/></div></noscript>
+    <!-- /Yandex Metrika -->
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        h1 {
-            font-size: 2rem;
-        }
-        button {
-            padding: 10px 20px;
-            margin: 10px;
-            border: none;
-            border-radius: 8px;
-            background: linear-gradient(45deg, #ff416c, #ff4b2b);
-            color: white;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        button:hover {
-            transform: scale(1.1);
-        }
-        .name-item {
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Самые красивые имена для девочек и мальчиков</h1>
-    <button onclick="loadNames('malename.txt')">♂️</button>
-    <button onclick="loadNames('femalename.txt')">♀️</button>
+    <button onclick="loadNames('malename.txt')" style="background: linear-gradient(45deg, #ff416c, #ff4b2b);">♂️</button>
+    <button onclick="loadNames('femalename.txt')" style="background: linear-gradient(45deg, #4169E1, #4b82ff);">♀️</button>
     <div id="name-list"></div>
 
     <script>
@@ -98,7 +54,13 @@
                 const nameElement = document.createElement('div');
                 nameElement.className = 'name-item';
                 nameElement.textContent = name;
+                nameElement.style.opacity = '0';
                 nameListElement.appendChild(nameElement);
+
+                setTimeout(() => {
+                    nameElement.style.transition = 'opacity 1s';
+                    nameElement.style.opacity = '1';
+                }, 100);
             });
         }
     </script>
