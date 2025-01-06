@@ -1,15 +1,18 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: #121212;
+    background: #181818;
     color: white;
-    text-align: center;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
 }
 
 h1 {
@@ -17,40 +20,48 @@ h1 {
     margin-bottom: 20px;
 }
 
+.button-container {
+    margin-bottom: 20px;
+}
+
 button {
-    padding: 10px 20px;
+    padding: 12px 25px;
     margin: 10px;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
     background: linear-gradient(135deg, #ff8a00, #e52e71);
     color: white;
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
     transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
 #name-list {
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    margin-top: 20px;
 }
 
 .name-item {
-    padding: 15px;
-    background: #333;
+    padding: 12px;
+    font-size: 1.8rem;
+    background: #222;
     border-radius: 8px;
-    font-size: 1.5rem;
-    width: fit-content;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
 }
 
-/* Стили для блока рекламы */
+/* Yandex Ad Block Styling */
 #yandex_rtb_R-A-13588930-1 {
     margin-top: 30px;
     padding: 20px;
