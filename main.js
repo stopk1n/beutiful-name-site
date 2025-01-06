@@ -10,7 +10,6 @@ import { englishFemaleNames } from './english-names-female.js';
 import { japaneseMaleNames } from './japanese-names-male.js';
 import { japaneseFemaleNames } from './japanese-names-female.js';
 
-
 // Функция для загрузки имен по фильтрам
 function loadNames() {
   const culture = document.getElementById('culture').value;
