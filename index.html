@@ -3,66 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Имена для детей — самые красивые имена для мальчиков и девочек</title>
-    <meta name="description" content="Подборка самых красивых и редких имен для детей. Мужские и женские имена с удобным выбором.">
-    <meta name="keywords" content="имена для детей, красивые имена, имена для мальчиков, имена для девочек, редкие имена">
-    <meta name="author" content="Ваше Имя">
-    <meta name="robots" content="index, follow">
-
-    <!-- Yandex Metrika -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-        ym(12345678, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true
-        });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/12345678" style="position:absolute; left:-9999px;" alt=""/></div></noscript>
-    <!-- /Yandex Metrika -->
-
+    <title>Самые красивые имена для девочек и мальчиков</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Самые красивые имена для девочек и мальчиков</h1>
-    <button onclick="loadNames('malename.txt')" style="background: linear-gradient(45deg, #ff416c, #ff4b2b);">♂️</button>
-    <button onclick="loadNames('femalename.txt')" style="background: linear-gradient(45deg, #4169E1, #4b82ff);">♀️</button>
+    <button onclick="loadNames('malename.txt')">♂️</button>
+    <button onclick="loadNames('femalename.txt')">♀️</button>
     <div id="name-list"></div>
 
+    <!-- Yandex.RTB -->
+    <script>window.yaContextCb=window.yaContextCb||[]</script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
+
+    <!-- Yandex.RTB R-A-13588930-1 -->
+    <div id="yandex_rtb_R-A-13588930-1"></div>
     <script>
-        let currentNames = [];
-
-        async function loadNames(file) {
-            try {
-                const response = await fetch(file);
-                const text = await response.text();
-                currentNames = text.split('\n').filter(name => name.trim() !== '');
-                displayNames(currentNames);
-            } catch (error) {
-                alert('Ошибка загрузки данных');
-            }
-        }
-
-        function displayNames(list) {
-            const nameListElement = document.getElementById('name-list');
-            nameListElement.innerHTML = '';
-            list.forEach(name => {
-                const nameElement = document.createElement('div');
-                nameElement.className = 'name-item';
-                nameElement.textContent = name;
-                nameElement.style.opacity = '0';
-                nameListElement.appendChild(nameElement);
-
-                setTimeout(() => {
-                    nameElement.style.transition = 'opacity 1s';
-                    nameElement.style.opacity = '1';
-                }, 100);
-            });
-        }
+    window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+            "blockId": "R-A-13588930-1",
+            "renderTo": "yandex_rtb_R-A-13588930-1"
+        });
+    });
     </script>
+
+    <script src="script.js"></script>
 </body>
 </html>
