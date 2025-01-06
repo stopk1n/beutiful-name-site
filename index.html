@@ -3,57 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Самые красивые имена для девочек и мальчиков</title>
+    <title>Самые красивые имена</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
         <h1>Самые красивые имена для девочек и мальчиков</h1>
         <div class="button-container">
-            <button onclick="loadNames('malename.txt')">♂️</button>
-            <button onclick="loadNames('femalename.txt')">♀️</button>
+            <button onclick="loadNames('malename.txt')">♂️ Мальчики</button>
+            <button onclick="loadNames('femalename.txt')">♀️ Девочки</button>
         </div>
         <div id="name-list"></div>
-
-        <!-- Yandex.RTB -->
-        <script>window.yaContextCb=window.yaContextCb||[]</script>
-        <script src="https://yandex.ru/ads/system/context.js" async></script>
-
-        <!-- Yandex.RTB R-A-13588930-1 -->
         <div id="yandex_rtb_R-A-13588930-1"></div>
-        <script>
-        window.yaContextCb.push(() => {
-            Ya.Context.AdvManager.render({
-                "blockId": "R-A-13588930-1",
-                "renderTo": "yandex_rtb_R-A-13588930-1"
-            });
-        });
-        </script>
     </div>
-
-    <script>
-        let currentNames = [];
-        async function loadNames(file) {
-            try {
-                const response = await fetch(file);
-                const text = await response.text();
-                currentNames = text.split('\\n').filter(name => name.trim() !== '');
-                displayNames(currentNames);
-            } catch (error) {
-                alert('Ошибка загрузки данных');
-            }
-        }
-
-        function displayNames(list) {
-            const nameListElement = document.getElementById('name-list');
-            nameListElement.innerHTML = '';
-            list.forEach(name => {
-                const nameElement = document.createElement('div');
-                nameElement.className = 'name-item';
-                nameElement.textContent = name;
-                nameListElement.appendChild(nameElement);
-            });
-        }
-    </script>
 </body>
 </html>
