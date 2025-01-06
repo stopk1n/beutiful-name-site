@@ -1,9 +1,15 @@
 // Импортирование всех файлов с именами
-import { russianMaleNames, russianFemaleNames } from './names/russian-names';
-import { arabicMaleNames, arabicFemaleNames } from './names/arabic-names';
-import { latinMaleNames, latinFemaleNames } from './names/latin-names';
-import { englishMaleNames, englishFemaleNames } from './names/english-names';
-import { japaneseMaleNames, japaneseFemaleNames } from './names/japanese-names';
+import { russianMaleNames } from './russian-names-male.js';
+import { russianFemaleNames } from './russian-names-female.js';
+import { arabicMaleNames } from './arabic-names-male.js';
+import { arabicFemaleNames } from './arabic-names-female.js';
+import { latinMaleNames } from './latin-names-male.js';
+import { latinFemaleNames } from './latin-names-female.js';
+import { englishMaleNames } from './english-names-male.js';
+import { englishFemaleNames } from './english-names-female.js';
+import { japaneseMaleNames } from './japanese-names-male.js';
+import { japaneseFemaleNames } from './japanese-names-female.js';
+
 
 // Функция для загрузки имен по фильтрам
 function loadNames() {
