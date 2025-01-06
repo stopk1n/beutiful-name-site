@@ -3,50 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Выбор имени для ребенка</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Выбор имени</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <h1>Выбор имени для вашего ребенка</h1>
+    <h1>Выберите имя для ребенка</h1>
   </header>
-
-  <section class="filters">
-    <label for="gender">Пол:</label>
-    <select id="gender">
-      <option value="all">Все</option>
-      <option value="male">Мужские</option>
-      <option value="female">Женские</option>
-    </select>
-
+  
+  <div id="filter-section">
     <label for="culture">Культура:</label>
     <select id="culture">
-      <option value="all">Все</option>
-      <option value="russian">Русские</option>
-      <option value="arabic">Арабские</option>
-      <option value="latin">Латинские</option>
+      <option value="russian">Русская</option>
+      <option value="arabic">Арабская</option>
+      <option value="latin">Латинская</option>
+      <option value="english">Английская</option>
+      <option value="japanese">Японская</option>
     </select>
 
-    <label for="first-letter">Первая буква:</label>
-    <input type="text" id="first-letter" maxlength="1">
-  </section>
+    <label for="gender">Пол:</label>
+    <select id="gender">
+      <option value="male">Мужской</option>
+      <option value="female">Женский</option>
+    </select>
+    
+    <button id="loadNamesBtn">Загрузить имена</button>
+  </div>
 
-  <section class="name-list">
-    <h2>Рекомендации:</h2>
-    <ul id="name-list">
-      <!-- Список имен будет выводиться здесь -->
-    </ul>
-  </section>
+  <div id="names-list">
+    <!-- Список имен будет загружаться сюда -->
+  </div>
 
-  <section class="random-name">
-    <button id="random-name-btn">Сгенерировать случайное имя</button>
-    <p id="random-name-result"></p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Выбор имени для ребенка</p>
-  </footer>
-
-  <script src="script.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
