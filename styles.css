@@ -1,60 +1,44 @@
 body {
   font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f9;
 }
 
 header {
-  background-color: #2c3e50;
+  background-color: #4CAF50;
   color: white;
   text-align: center;
-  padding: 1em;
+  padding: 1rem;
 }
 
-.filters {
-  padding: 20px;
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-
-.filters label {
-  font-weight: bold;
-}
-
-.name-list {
-  padding: 20px;
-}
-
-.name-list ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.name-list li {
+#filter-section {
+  padding: 1rem;
   background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  width: 80%;
+  max-width: 600px;
+}
+
+#filter-section select, #filter-section button {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+#names-list {
+  margin: 2rem auto;
+  padding: 1rem;
+  width: 80%;
+  max-width: 600px;
+}
+
+.name-item {
+  background-color: #e0e0e0;
   margin: 5px 0;
   padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.random-name {
-  text-align: center;
-  margin-top: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #2980b9;
+  border-radius: 4px;
 }
